@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ffyhf0pcefb4"]
+
+[ext_resource type="Texture2D" uid="uid://c8nomi5i3f5fl" path="res://Sprites/marker.png" id="1_1cb85"]
+
+[node name="Marker" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_1cb85")

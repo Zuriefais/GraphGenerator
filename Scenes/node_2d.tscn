@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw3pa1rffwnw3"]
+
+[ext_resource type="Script" path="res://Scripts/NodeSpawner.cs" id="1_fibrv"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("camera")]
+script = ExtResource("1_fibrv")
+camera = NodePath("Camera2D")
+speed = 200.0
+
+[node name="Camera2D" type="Camera2D" parent="."]

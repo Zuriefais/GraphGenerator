@@ -1,0 +1,9 @@
+{
+    "addons": {
+      "imgui-godot": {
+        "url": "https://github.com/pkdawson/imgui-godot",
+        "checkout": "v3.5.6",
+        "subfolder": "addons/imgui-godot"
+      }
+    }
+  }

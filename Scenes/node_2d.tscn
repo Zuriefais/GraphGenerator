@@ -6,5 +6,6 @@
 script = ExtResource("1_fibrv")
 camera = NodePath("Camera2D")
 speed = 200.0
+metadata/_edit_horizontal_guides_ = [-629.0]
 
 [node name="Camera2D" type="Camera2D" parent="."]

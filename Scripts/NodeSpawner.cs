@@ -11,6 +11,7 @@ public partial class NodeSpawner: Node {
     public Camera2D camera;
     private string inputData;
     private PackedScene markerScene;
+    private PackedScene labelScene;
     private GraphData data;
     private PackedScene lineScene;
     private List<Vector2> graphOfPos = new();
@@ -19,20 +20,24 @@ public partial class NodeSpawner: Node {
     [Export]
     private float speed = 100;
     private bool firstClick = true;
-    bool gameStarted;
+    bool canCreateLineByClick;
+    int iterationWaitTime = 200;
+    bool menuIsOpen = true;
 
     public override void _Ready()
     {
         markerScene = ResourceLoader.Load<PackedScene>("res://Scenes/marker.tscn");
         lineScene = ResourceLoader.Load<PackedScene>("res://Scenes/line_2d.tscn");
+        labelScene = ResourceLoader.Load<PackedScene>("res://Scenes/label.tscn");
         using var file = FileAccess.Open("res://GraphData.json", FileAccess.ModeFlags.Read);
         inputData = file.GetAsText();
     }
 
     private void AddPointsFromData() {
+        int j = 0;
         var rand = new Random();
-        Vector2 rightUpCornerOfScreen = new Vector2(camera.GetScreenCenterPosition().X + camera.GetViewportRect().Size.X, camera.GetScreenCenterPosition().Y + camera.GetViewportRect().Size.Y);
-        Vector2 leftBottomCornerOfScreen = new Vector2(camera.GetScreenCenterPosition().X - camera.GetViewportRect().Size.X, camera.GetScreenCenterPosition().Y - camera.GetViewportRect().Size.Y);
+        Vector2 rightUpCornerOfScreen = new Vector2(camera.GetScreenCenterPosition().X + camera.GetViewportRect().Size.X/2, camera.GetScreenCenterPosition().Y + camera.GetViewportRect().Size.Y/2);
+        Vector2 leftBottomCornerOfScreen = new Vector2(camera.GetScreenCenterPosition().X - camera.GetViewportRect().Size.X/2, camera.GetScreenCenterPosition().Y - camera.GetViewportRect().Size.Y/2);
         foreach (var item in data.graphData)
         {
             dictPos.Add(item, new Vector2(rand.Next((int)leftBottomCornerOfScreen.X, (int)rightUpCornerOfScreen.X), rand.Next((int)leftBottomCornerOfScreen.Y, (int)rightUpCornerOfScreen.Y)));
@@ -40,6 +45,10 @@ public partial class NodeSpawner: Node {
             newMarker.Position = dictPos[item];
             this.AddChild(newMarker);
             graphOfPos.Add(dictPos[item]);
+            var label = (Label)labelScene.Instantiate();
+            label.Text = Alphabet.alphabet[j].ToString();
+            newMarker.AddChild(label);
+            j++;
         }
         GD.Print(data);
         CreateGraphFromData();
@@ -53,7 +62,7 @@ public partial class NodeSpawner: Node {
             {
                 if(item.Any(c => itemTwo.Contains(c))) 
                 {
-                    await Task.Delay(1000);
+                    await Task.Delay(iterationWaitTime);
                     GD.Print("contains");
                     CreateLine(dictPos[item], dictPos[itemTwo]);
                 }
@@ -63,8 +72,10 @@ public partial class NodeSpawner: Node {
 
     public override void _Process(double delta)
     {
+        if(menuIsOpen)
+        Gui();
         var mousePos = GetViewport().GetCamera2D().GetGlobalMousePosition();
-        if (Input.IsActionJustPressed("MouseClick") && gameStarted) {
+        if (Input.IsActionJustPressed("MouseClick") && canCreateLineByClick) {
             if (!firstClick)
             foreach (var item in graphOfPos)
             {
@@ -96,17 +107,26 @@ public partial class NodeSpawner: Node {
         return data;
     }
 
-    private void Camera(double delta) 
+
+    private void Gui() 
     {
-        ImGui.Begin("Graph generator conf");
-        ImGui.InputTextMultiline("Graph Data Json", ref inputData, 1000, new(600, 400));
-        if (ImGui.Button("Generate")) {
+        ImGui.Begin("Настройки генератора графа");
+        ImGui.InputTextMultiline("Входные данные для генерации ", ref inputData, 1000, new(600, 400));
+        ImGui.InputInt("Время ожидания перед следующей итерацией в миллисекундах", ref iterationWaitTime);
+        ImGui.InputFloat("Скорость камеры", ref speed);
+        if (ImGui.Button("Сгенерировать")) {
             GD.Print("кнопка нажата");
-            gameStarted = true;
             data = Load(inputData);
             AddPointsFromData();
         }
-        
+        if(ImGui.Button("Перезапуск"))
+        GetTree().ReloadCurrentScene();
+        ImGui.Checkbox("Создавать точку при клике", ref canCreateLineByClick);
+        ImGui.StyleColorsClassic();
+    }
+
+    private void Camera(double delta) 
+    {   
         if (Input.IsActionPressed("MouseDown"))
         {
             if(camera.Zoom != new Vector2(0.01f, 0.01f))
@@ -138,6 +158,14 @@ public partial class NodeSpawner: Node {
             moveDirection.X += 1;
             GD.Print("Right");
         }
+        if (Input.IsActionJustPressed("X"))
+        {
+            canCreateLineByClick = !canCreateLineByClick;
+        }
+        if (Input.IsActionJustPressed("Tab"))
+        {
+            menuIsOpen = !menuIsOpen;
+        }
         moveDirection += moveDirection.Normalized() * speed * (float)delta;
         camera.Position = camera.Position + moveDirection;
     }
@@ -148,3 +176,8 @@ public class GraphData
 {
     public List<List<int>> graphData;
 }
+
+public static class Alphabet {
+    public static char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+}
+

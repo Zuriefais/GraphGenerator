@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\XXX.csproj": {}
+    "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\GraphGenerator\\XXX.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\XXX.csproj": {
+    "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\GraphGenerator\\XXX.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\XXX.csproj",
+        "projectUniqueName": "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\GraphGenerator\\XXX.csproj",
         "projectName": "XXX",
-        "projectPath": "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\XXX.csproj",
+        "projectPath": "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\GraphGenerator\\XXX.csproj",
         "packagesPath": "C:\\Users\\zurie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\GraphGenerator\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Users\\zurie\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Aaj5btogVBlMUY7HPawh4ryp3HNgoMiNkdQ+PdB5HpnwY0CCv//mXc18gKTgxPyYAsmhKHu1YGKbxtuYd+7i/w==",
+  "dgSpecHash": "gNZ8sQ/vxESi7d1sByuoDxTSEoiof7QHHIseLELVwtIHDW0edjZyfBohq8WLbuXzoAt1HhnGq8PkuwRIg8sMBA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\XXX.csproj",
+  "projectFilePath": "C:\\Users\\zurie\\OneDrive\\Документы\\XXX\\GraphGenerator\\XXX.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zurie\\.nuget\\packages\\godot.sourcegenerators\\4.0.0\\godot.sourcegenerators.4.0.0.nupkg.sha512",
     "C:\\Users\\zurie\\.nuget\\packages\\godotsharp\\4.0.0\\godotsharp.4.0.0.nupkg.sha512",

@@ -1,2 +1,5 @@
-res://Scenes/marker.tscn
+res://Scenes/label.tscn
+res://Comfortaa.tres
 res://Scenes/node_2d.tscn
+res://Scenes/marker.tscn
+res://addons/imgui-godot/ImGuiLayer.tscn

@@ -1,5 +1,6 @@
 res://Scenes/line_2d.tscn::6d12d004c38b619598a5f4cd181fa775::1678454228::res://.godot/exported/133200997/export-857bbbf31af5ba35efaa106e7019f20f-line_2d.scn
-res://Scenes/marker.tscn::540fb6220725e2505ec8b3cdd67b0ab9::1678818542::res://.godot/exported/133200997/export-74ab155980a8197caebdd6ff7de6639d-marker.scn
-res://Scenes/node_2d.tscn::5072f9b17cef9fbf677f9e61a95e3614::1678818542::res://.godot/exported/133200997/export-56b62997d4fc30d58bc9b160fa0e9b0c-node_2d.scn
-res://addons/imgui-godot/ImGuiLayer.tscn::26a615b5f21483d9b03a924767d90584::1678816007::res://.godot/exported/133200997/export-8e016c1258c5200a672ad6b3a5a4d694-ImGuiLayer.scn
+res://Scenes/marker.tscn::540fb6220725e2505ec8b3cdd67b0ab9::1678964264::res://.godot/exported/133200997/export-74ab155980a8197caebdd6ff7de6639d-marker.scn
+res://Scenes/node_2d.tscn::6a0693b3241eacd2180e0381a7818b2d::1678964264::res://.godot/exported/133200997/export-56b62997d4fc30d58bc9b160fa0e9b0c-node_2d.scn
+res://addons/imgui-godot/ImGuiLayer.tscn::a88e94f12d1c01913e95c272edba4586::1678964264::res://.godot/exported/133200997/export-8e016c1258c5200a672ad6b3a5a4d694-ImGuiLayer.scn
 res://addons/imgui-godot/ImGuiShaderSPIRV.tres::b362ba43f9aac698018b5ea2dce1130b::1678816007::res://.godot/exported/133200997/export-1d5ecd00f14a7dc9bb81148b33284a9e-ImGuiShaderSPIRV.res
+res://Scenes/label.tscn::11907e498901543f5a99a77eed42c107::1678988527::res://.godot/exported/133200997/export-df629b426b4f5b5ce4442edd86504b83-label.scn

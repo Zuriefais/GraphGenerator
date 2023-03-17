@@ -1,3 +1,3 @@
 # GraphGenerator
-Generate graph
-Solving a school problem
+Generate graph to 
+Solve a school problem
